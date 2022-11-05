@@ -5,7 +5,6 @@ package csu.csci325;
 
 import java.time.Instant;
 import java.util.Date;
-import java.util.Iterator;
 
 
 /**
@@ -30,16 +29,29 @@ public class QtimeNote implements Comparable<QtimeNote>{
 	
 	@Override
 	public int compareTo(QtimeNote n){
-		int retVal;
+		int retVal, chapter, chapter1, v, v1;
+		String tmp;
+		String[] verseRef, verseRef1;
 
 		retVal = book.compareTo(n.getBookOfBible());
 		if(0 == retVal) {
-			retVal = verse.compareTo(n.getVerseRef());
+			// extract chapter and verse then compare them as integers
+			verse.trim();
+			tmp = n.getVerseRef();
+			tmp.trim();
+			verseRef = verse.split(":");
+			verseRef1 = tmp.split(":");
+			
+			// if chapter is the same
+			retVal = Integer.parseInt(verseRef[0]) - Integer.parseInt(verseRef1[0]);
+			if (0 == retVal)
+			{
+				// compare the verse
+				retVal = Integer.parseInt(verseRef[1]) - Integer.parseInt(verseRef1[1]);
+			}
+			
 		}
 
-		if(retVal > 0){
-			retVal = -retVal;
-		}
 		return retVal;
 	}
 
@@ -66,7 +78,7 @@ public class QtimeNote implements Comparable<QtimeNote>{
 				", Notes: " + note +
 				"\n";
 	}
-
+//
 //	public static void main(String[] args) {
 //		QtimeNote note = new QtimeNote("Jeremiah", "29:11",	"One of my Favs.");
 //

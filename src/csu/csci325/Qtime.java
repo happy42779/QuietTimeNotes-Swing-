@@ -87,31 +87,36 @@ public class Qtime {
 		return str;
 	}
 
-//	public static void main(String[] args) {
-//		Qtime qtime = new Qtime();
-//
-//		System.out.println("Size: " + qtime.getNoteListSize());
-//
-//		// add 
-//		qtime.setNote(new QtimeNote("John", "3:16", "Love"));
-//		System.out.println("Qtime: " + qtime);
-//		// set the same book and verse
-//		qtime.setNote(new QtimeNote("John", "3:16", "God's love is great!"));
-//		System.out.println("Qtime: " + qtime);
-//		System.out.println("Size: " + qtime.getNoteListSize());
-//
-//		// add another one
-//		qtime.setNote(new QtimeNote("Genesis", "1:1-8", "God created everthing."));
-//		System.out.println("Qtime: " + qtime);
-//		System.out.println("Size: " + qtime.getNoteListSize());
-//
-//		// update notes
-//		QtimeNote note = new QtimeNote("Psalm", "23:1", "Lord is my sheperd.");
-//		qtime.setNote(note);
-//		qtime.updateUserNote(note, "I shall not be in want!");
-//		System.out.println("Qtime: " + qtime);
-//		System.out.println("Size: " + qtime.getNoteListSize());
-//
-//	}
+	public static void main(String[] args) {
+		Qtime qtime = new Qtime();
+
+		System.out.println("Size: " + qtime.getNoteListSize());
+
+		// add 
+		qtime.setNote(new QtimeNote("John", "3:16", "Love"));
+		System.out.println("Qtime: " + qtime);
+		// set the same book and verse
+		qtime.setNote(new QtimeNote("John", "3:16", "God's love is great!"));
+		System.out.println("Qtime: " + qtime);
+		System.out.println("Size: " + qtime.getNoteListSize());
+
+		qtime.setNote(new QtimeNote("John", "14:6", "Jesus is the way, "));
+		
+		// add another one
+		qtime.setNote(new QtimeNote("Genesis", "1:1-8", "God created everthing."));
+		System.out.println("Qtime: " + qtime);
+		System.out.println("Size: " + qtime.getNoteListSize());
+
+		// update notes
+		QtimeNote note = new QtimeNote("Psalm", "23:1", "Lord is my sheperd.");
+		qtime.setNote(note);
+		qtime.updateUserNote(note, "I shall not be in want!");
+		System.out.println("Qtime: " + qtime);
+		System.out.println("Size: " + qtime.getNoteListSize());
+
+		// sort notes
+		qtime.sortNotes();
+		System.out.println("Qtime: " + qtime);
+	}
 
 }
